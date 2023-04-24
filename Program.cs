@@ -3,8 +3,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        
-
         int eleccion=Menu();
         while(eleccion<5){
             switch(eleccion){
@@ -17,9 +15,23 @@ internal class Program
                 case 4:
                 break;
             }
+            eleccion=Menu();
         }  
     }
     static void Inscripcion(){
+        string dni, nombre=IngresarString("Ingresar tu nombre"), apellido=IngresarString("Ingresar tu apellido");
+        int tipoEntrada, valorRequerido, valorAbonado;
+        do{
+            dni=IngresarString("Ingresar el DNI");
+
+        }while(dni.Length!=8 && !int.TryParse(dni,out int x));
+        do{
+        tipoEntrada=IngresarInt("Ingresar el tipo de entrada: \n Opción 1 - Día 1 , valor a abonar $15000 \n Opción 2 - Día 2, valor a abonar $30000 \n Opción 3 - Día 3, valor a abonar $10000 \n Opción 4 - Full Pass, valor a abonar $40000");
+        }while(tipoEntrada>4 || tipoEntrada<1);
+        
+
+        
+
 
 
     }
@@ -36,5 +48,10 @@ internal class Program
         Console.WriteLine(mensaje);
         int num=int.Parse(Console.ReadLine());
         return num;
+    }
+    static string IngresarString(string mensaje){
+        Console.WriteLine(mensaje);
+        string frase=Console.ReadLine();
+        return frase;
     }
 }
